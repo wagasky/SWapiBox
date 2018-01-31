@@ -1,24 +1,22 @@
-export const getPeople = async () => {
+export const fetchAndParse = async (url) => {
+  const initialFetch = await fetch(url);
 
-  const initialFetch = await fetch('https://swapi.co/api/people/')
-  const { results } = await initialFetch.json()
+  return initialFetch.json();
+}
+
+export const getPeople = async () => {
+  const { results } = await fetchAndParse('https://swapi.co/api/people/');
   const people = await formatPeople(results)
+
   return people;
 };
-
-const fetchAndParse = async (url) => {
-  const initialFetch = await fetch(url);
-  const { results } = await initialFetch.json();
-  return results;
-}
 
 const formatPeople = (arrayOfPeopleObjects) => {
   const unresolvedPromises = arrayOfPeopleObjects.map( async (person) => {
     const { name, homeworld, species } = person;
-    const initialHomeworld = await fetch(homeworld);
-    const homeworldData = await initialHomeworld.json();
-    const initialSpecies = await fetch(species);
-    const speciesData = await initialSpecies.json();
+
+    const homeworldData = await fetchAndParse(homeworld);
+    const speciesData = await fetchAndParse(species);
 
     return { 
       name: name,
@@ -32,6 +30,8 @@ const formatPeople = (arrayOfPeopleObjects) => {
 }
 
 export const getPlanets = async () => {
-  const initialFetch = await fetch('https://swapi.co/api/planets/')
+  const { results } = await fetchAndParse('https://swapi.co/api/planets/')
+  const planets = await formatPlanets(results)
 
+  return planets;
 }
