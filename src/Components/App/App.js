@@ -11,14 +11,15 @@ class App extends Component {
     super(props)
 
     this.state = {
-      people: []
+      people: [],
+      planets: [],
     }
   }
 
   async componentDidMount() {
-    let people = await getPeople();
+    let people = await getPeople(); 
     let planets = await getPlanets();
-    this.setState({ people })
+    this.setState({ people, planets })
   }
 
   render() {
