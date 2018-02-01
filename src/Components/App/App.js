@@ -3,7 +3,7 @@ import Header from '../Header/Header'
 import CardDisplay from '../CardDisplay/CardDisplay'
 import { BrowserRouter } from 'react-router-dom'
 import './App.css';
-import { getPeople, getPlanets } from '../../apiCalls.js'
+import { getPeople, getPlanets, getVehicles } from '../../apiCalls.js'
 
 class App extends Component {
 
@@ -11,14 +11,17 @@ class App extends Component {
     super(props)
 
     this.state = {
-      people: []
+      people: [],
+      planets: [],
+      vehicles: [],
     }
   }
 
   async componentDidMount() {
-    let people = await getPeople();
+    let people = await getPeople(); 
     let planets = await getPlanets();
-    this.setState({ people })
+    let vehicles = await getVehicles();
+    this.setState({ people, planets, vehicles })
   }
 
   render() {
