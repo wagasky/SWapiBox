@@ -11,7 +11,7 @@ return (
   <div>
   <p>I'm a CardDisplay!</p>
     <Switch>
-      <Route exact path='/people' component={ People } people={props.people}/>
+      <Route exact path='/people' render={ () => ( <People props={this.props} /> ) } />
       <Route exact path='/vehicles' component={ Vehicles }/>
       <Route exact path='/planets' component={ Planets }/>
       <Route exact path='/favorites' component={ Favorites }/>
