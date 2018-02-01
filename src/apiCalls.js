@@ -65,12 +65,27 @@ const formatPlanets = async (arrayOfPlanetObjects) => {
   return Promise.all(unresolvedPromises)
 }
 
-// vehicle
-// name
-// model
-// class
-// number of passengers
+export const getVehicles = async () => {
+  const { results } = await fetchAndParse('https://swapi.co/api/vehicles/')
+  const vehicles = await formatVehicles(results)
 
+  return vehicles
+}
+
+const formatVehicles = async (arrayOfVehicleObjects) => {
+
+  const unresolvedPromises = arrayOfVehicleObjects.map( async (vehicle) => {
+    const { name, model, vehicle_class, passengers } = vehicle;
+
+    return {
+      name: vehicle.name,
+      model: vehicle.model,
+      vehicleClass: vehicle.vehicle_class,
+      passengers: vehicle.passengers
+    }
+  })
+  return Promise.all(unresolvedPromises)
+}
 
 
 
