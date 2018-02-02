@@ -28,6 +28,10 @@ class App extends Component {
     this.setState({ people, planets, vehicles, film })
   }
 
+  handleFavorite(name) {
+    console.log('favorite clicked!', name)
+  }
+
   // planets and vehicle on click
 
   render() {
@@ -39,6 +43,7 @@ class App extends Component {
                      vehicles={this.state.vehicles}
                      favorites={this.state.favorites}
                      film={this.state.film}
+                     handleFavorite={this.handleFavorite}
          />
       </div>
     );
