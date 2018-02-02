@@ -11,16 +11,13 @@ const fetchAndParse = async (url) => {
 }
 
 const generateRandomNumber = () => {
-  const randomNumber = Math.floor(Math.random() * 7)
+  const randomNumber = Math.floor(Math.random() * 7);
   return randomNumber
 }
 
-const getFilm = async (randomNumber) => {
 
-  let number = randomNumber
-
-  debugger
-  
+const getFilm = async () => {
+  let number = generateRandomNumber()
   try {
     const results  = await fetchAndParse(`https://swapi.co/api/films/${number}`);
     const film = await formatFilm(results, number)
@@ -33,9 +30,9 @@ const getFilm = async (randomNumber) => {
 
 }
 
-const formatFilm = (results, randomNumber) => {
+const formatFilm = (results, number) => {
 
-    let filmNumber = randomNumber - 1
+    let filmNumber = number - 1
     const numeral = [ 'IV', 'V', 'VI', 'I', 'II', 'III', 'VII' ]
 
     return {
@@ -59,15 +56,28 @@ const getPeople = async () => {
 };
 
 const getHomeWorld = async (homeworldUrl) => {
-  const { name, population } = await fetchAndParse(homeworldUrl)
+  try {
+    const { name, population } = await fetchAndParse(homeworldUrl)
 
-  return { homeworldName: name, population }
+    return { homeworldName: name, population }
+
+  } catch(e) {
+    const error = new Error('getHomeWorld failed to fetch')
+    return error;
+  }
+  
 }
 
 const getSpecies = async (speciesURL) => {
-  const { name } = await fetchAndParse(speciesURL)
+  try {
+    const { name } = await fetchAndParse(speciesURL)
 
-  return name
+    return name
+
+  } catch(e) {
+    const error = new Error('getSpecies failed to fetch');
+    return error;
+  }
 }
 
 const formatPeople = (arrayOfPeopleObjects) => {

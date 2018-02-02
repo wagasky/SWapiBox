@@ -37,16 +37,12 @@ describe('getFilm tests', () => {
     }));
   });
 
-  it('fetch is called with the correct params', async () => {
-  const expected = [
-      'https://swapi.co/api/films/', 2
-    ];
+  it('fetch is called', async () => {
     expect(window.fetch).not.toHaveBeenCalled();
 
     getFilm(2);
 
     expect(window.fetch).toHaveBeenCalled();
-    expect(window.fetch).toHaveBeenCalledWith(...expected)
   });
 
   it('should return an object of results', async() => {
@@ -94,9 +90,13 @@ describe('getPeople tests', () => {
   });
 
   it('fetch is called with the correct params', async () => {
+    const expected = [ "https://swapi.co/api/people/" ];
+    expect(window.fetch).not.toHaveBeenCalled();
+
     getPeople();
 
     expect(window.fetch).toHaveBeenCalled();
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
   it('should return an object of results', async() => {
@@ -129,9 +129,13 @@ describe('getPlanets tests', () => {
   });
 
   it('fetch is called with the correct params', async () => {
+    const expected = [ "https://swapi.co/api/planets/" ];
+    expect(window.fetch).not.toHaveBeenCalled();
+
     getPlanets();
 
     expect(window.fetch).toHaveBeenCalled();
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
   it('should return an object of results', async() => {
@@ -164,9 +168,13 @@ describe('getVehicles tests', () => {
   });
 
   it('fetch should be called with the correct params', async () => {
+    const expected = [ "https://swapi.co/api/vehicles/" ];
+    expect(window.fetch).not.toHaveBeenCalled();
+
     getVehicles();
 
     expect(window.fetch).toHaveBeenCalled();
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
   it('should return an object of results', async() => {
@@ -188,7 +196,8 @@ describe('getVehicles tests', () => {
 });
 
 describe('fetchAndParse tests', () => {
-   beforeEach(() => {
+
+  beforeEach(() => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       status: 200,
       json: () => Promise.resolve({
@@ -198,6 +207,8 @@ describe('fetchAndParse tests', () => {
   });
 
   it('fetch should be called', async () => {
+    expect(window.fetch).not.toHaveBeenCalled();
+
     fetchAndParse();
 
     expect(window.fetch).toHaveBeenCalled();
@@ -212,18 +223,110 @@ describe('fetchAndParse tests', () => {
 
     expect(fetchAndParse('')).rejects.toEqual(Error(expectedError))
   });
-
-  it('fetch should be called with the correct params')
-
-
 })
 
+describe('getResidentNames tests', () => {
 
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve({
+        results: 'Returned results',
+      })
+    }));
+  });
 
-// to do
-// get residents
-// getSpecies
-// getHomeworld
+  it('fetch should be called with the correct params', async () => {
+    const expected = [ "test url" ];
+    expect(window.fetch).not.toHaveBeenCalled();
+
+    getResidentNames(expected);
+
+    expect(window.fetch).toHaveBeenCalled();
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
+  })
+
+  it('should throw the error for getResidentNames', async () => {
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.reject({
+      status: 404
+    }))
+
+    const residentData = await getResidentNames()
+    const expectedError = 'getResidentNames failed to fetch'
+
+    expect(residentData).toEqual(Error(expectedError))
+  })
+})
+
+describe('getSpecies tests', () => {
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve({
+        results: 'Returned results',
+      })
+    }));
+  });
+
+  it('fetch should be called with the correct params', async () => {
+    const expected = [ "test url" ];
+    expect(window.fetch).not.toHaveBeenCalled();
+
+    getSpecies(expected);
+
+    expect(window.fetch).toHaveBeenCalled();
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+  })
+
+  it('should throw the error for getSpecies', async () => {
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.reject({
+      status: 404
+    }))
+
+    const speciesData = await getSpecies()
+    const expectedError = 'getSpecies failed to fetch'
+
+    expect(speciesData).toEqual(Error(expectedError))
+  })
+})
+
+describe('getHomeWorld tests', () => {
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve({
+        results: 'Returned results',
+      })
+    }));
+  });
+
+  it('fetch should be called with the correct params', async () => {
+    const expected = [ "test url" ];
+    expect(window.fetch).not.toHaveBeenCalled();
+
+    getHomeWorld(expected);
+
+    expect(window.fetch).toHaveBeenCalled();
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+  })
+
+  it('should throw the error for getHomeWorld', async () => {
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.reject({
+      status: 404
+    }))
+
+    const homeWorldData = await getHomeWorld()
+    const expectedError = 'getHomeWorld failed to fetch'
+
+    expect(homeWorldData).toEqual(Error(expectedError))
+  })
+})
+
 
 
 

@@ -5,13 +5,13 @@ import Planets from '../Planets/Planets'
 import Favorites from '../Favorites/Favorites'
 import { Switch, Route } from 'react-router-dom';
 
-const CardDisplay = (props) => {
+const CardDisplay = ({ people }) => {
 
 return (
   <div>
   <p>I'm a CardDisplay!</p>
     <Switch>
-      <Route exact path='/people' render={ () => ( <People props={this.props} /> ) } />
+      <Route exact path='/people' component={ () => <People people={people} /> } />
       <Route exact path='/vehicles' component={ Vehicles }/>
       <Route exact path='/planets' component={ Planets }/>
       <Route exact path='/favorites' component={ Favorites }/>

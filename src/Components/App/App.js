@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CardDisplay props={this.state} />
+        <CardDisplay people={this.state.people} />
       </div>
     );
   }
