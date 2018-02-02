@@ -3,12 +3,13 @@ import Card from '../Card/Card'
 
 const People = ({ people }) => {
   
-  const renderedCards = people.map( (person, index) => {
+  const renderedCards = people.map( (person, index, handleFavorite) => {
 
     return(
       <Card 
             key={index}
             person={person}
+            handleFavorite={handleFavorite}
        />
     )
   });
