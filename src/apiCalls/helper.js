@@ -1,7 +1,7 @@
 import { getHomeWorld, getSpecies, getResidentNames } from './apiCalls'
 
 const generateRandomNumber = () => {
-  const randomNumber = Math.floor(Math.random() * 7);
+  const randomNumber = Math.floor((Math.random() * 6) + 1);
   return randomNumber
 }
 
@@ -29,9 +29,12 @@ const formatPeople = (arrayOfPeopleObjects) => {
       return { 
         name: name,
         favorite: false, 
-        homeworld: homeworldName,
-        species: speciesData,
-        population: population,
+        category: 'person',
+        info: {
+          homeworld: homeworldName,
+          species: speciesData,
+          population: population,
+        },
       }
     }) 
     return Promise.all(unresolvedPromises)
@@ -46,10 +49,14 @@ const formatPlanets = async (arrayOfPlanetObjects) => {
 
       return {
         name: planet.name,
-        terrain: planet.terrain,
-        population: planet.population,
-        climate: planet.climate,
-        residents: residentData,
+        favorite: false,
+        category: 'planet',
+        info: {
+          terrain: planet.terrain,
+          population: planet.population,
+          climate: planet.climate,
+          residents: residentData ? residentData : 'none',
+        }, 
       }
     })
     return Promise.all(unresolvedPromises)
@@ -62,9 +69,13 @@ const formatVehicles = async (arrayOfVehicleObjects) => {
 
       return {
         name: vehicle.name,
-        model: vehicle.model,
-        vehicleClass: vehicle.vehicle_class,
-        passengers: vehicle.passengers
+        category: 'vehicle',
+        favorite: false,
+        info: {
+          model: vehicle.model,
+          vehicleClass: vehicle.vehicle_class,
+          passengers: vehicle.passengers,
+        }
       }
     })
     return Promise.all(unresolvedPromises)

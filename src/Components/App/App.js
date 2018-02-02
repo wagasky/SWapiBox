@@ -16,7 +16,7 @@ class App extends Component {
       planets: [],
       vehicles: [],
       favorites: [],
-      films: [],
+      film: [],
     }
   }
 
@@ -24,8 +24,8 @@ class App extends Component {
     let people = await getPeople(); 
     let planets = await getPlanets();
     let vehicles = await getVehicles();
-    let films = await getFilm();
-    this.setState({ people, planets, vehicles, films })
+    let film = await getFilm();
+    this.setState({ people, planets, vehicles, film })
   }
 
   // planets and vehicle on click
@@ -34,7 +34,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CardDisplay people={this.state.people} />
+        <CardDisplay people={this.state.people} 
+                     planets={this.state.planets}
+                     vehicles={this.state.vehicles}
+                     favorites={this.state.favorites}
+                     film={this.state.film}
+         />
       </div>
     );
   }

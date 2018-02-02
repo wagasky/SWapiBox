@@ -1,13 +1,23 @@
 import React from 'react';
 import Card from '../Card/Card'
 
-const Vehicles = () => {
-  return (
-    <div>
-      <p>I'm Vehicles!</p>
-      <Card />
-    </div>
+const Vehicles = ({ vehicles }) => {
 
+const renderedCards = vehicles.map( (vehicle, index) => {
+
+    return(
+      <Card 
+            key={index}
+            vehicle={vehicle}
+       />
+    )
+  });
+
+
+  return (
+    <div className="vehicleCards">
+      { renderedCards }
+    </div>
   )
 }
 

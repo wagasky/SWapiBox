@@ -2,13 +2,21 @@ import React from 'react';
 import Card from '../Card/Card'
 
 const People = ({ people }) => {
+  
+  const renderedCards = people.map( (person, index) => {
 
-  console.log(people)
+    return(
+      <Card 
+            key={index}
+            person={person}
+       />
+    )
+  });
+
 
   return (
-    <div>
-      <p>I'm People!</p>
-      <Card />
+    <div className="peopleCards">
+      { renderedCards }
     </div>
   )
 }
