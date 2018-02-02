@@ -1,11 +1,5 @@
 /* eslint-disable */ 
 
-// const favorites = [
-//   {"name":"X-34 landspeeder", "model":"X-34 landspeeder", "vehicleClass":"repulsorcraft", "passengers":"1"}, 
-//   {"name":"Hoth","terrain":"tundra, ice caves, mountain ranges","population":"unknown","climate":"frozen","residents":"none"},
-//   {"name":"Yavin IV","terrain":"jungle, rainforests","population":"1000","climate":"temperate, tropical","residents":"none"}
-//   ];
-
 const peopleData = 
   [
     {"name":"Luke Skywalker","homeworld":"Tatooine","species":"Human","population":"200000"},
@@ -53,7 +47,7 @@ const filmData = [
     }
   ]
 
-const homeworldData = [
+const homeWorldData = [
   {
     name: "Tatooine",
     population: "200000"
