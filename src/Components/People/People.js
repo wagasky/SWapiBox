@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from '../Card/Card'
 
-const People = (props) => {
+const People = ({ people }) => {
 
-  console.log(this.props)
+  console.log(people)
 
   return (
     <div>
