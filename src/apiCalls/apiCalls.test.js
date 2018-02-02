@@ -16,14 +16,10 @@ import {
   } from './apiCalls';
 
 const {
-  mockRawData, 
   peopleData, 
   planetData, 
   vehicleData, 
-  filmData, 
-  homeworldData,
-  speciesData,
-  residentNameData } = mockApiData
+  filmData } = mockApiData
 
 
 describe('getFilm tests', () => {
