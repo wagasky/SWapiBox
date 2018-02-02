@@ -12,10 +12,10 @@ return (
   <div>
   <p>I'm a CardDisplay!</p>
     <Switch>
-      <Route exact path='/people' component={ () => <People people={people} handleFavorite={handleFavorite} /> } />
-      <Route exact path='/vehicles' component={ () => <Vehicles vehicles={vehicles} /> }/>
-      <Route exact path='/planets' component={ () => <Planets planets={planets} /> } />
-      <Route exact path='/favorites' component={ () => <Favorites favorites={favorites} /> }/>
+      <Route exact path='/people' component={ () => <People data={people} handleFavorite={handleFavorite} /> } />
+      <Route exact path='/vehicles' component={ () => <Vehicles data={vehicles} handleFavorite={handleFavorite}/> }/>
+      <Route exact path='/planets' component={ () => <Planets data={planets} handleFavorite={handleFavorite}/> } />
+      <Route exact path='/favorites' component={ () => <Favorites data={favorites} handleFavorite={handleFavorite}/> }/>
     </Switch>
     <IntroText film={film}/>
   </div>

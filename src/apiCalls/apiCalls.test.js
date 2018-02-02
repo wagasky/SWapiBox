@@ -47,20 +47,6 @@ describe('getFilm tests', () => {
     expect(typeof filmData).toEqual('object');
   })
 
-// check length of the mock data instead
-  // it('should return a title, release date, crawl text, and numeral', async () => {
-  //   const data = await getFilm();
-  //   const expected = filmData;
-
-  //   // is something like this better?
-  //   // expect(data).toEqual(expected)
-
-  //   expect(data.title).toEqual(expected.title);
-  //   expect(data.date).toEqual(expected.date);
-  //   expect(data.text).toEqual(expected.text);
-  //   expect(data.number).toEqual(expected.number)
-  // })
-
   it('should throw the error for getFilms when catch is hit in the Promise', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.reject({
       status: 404
