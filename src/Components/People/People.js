@@ -1,14 +1,14 @@
 import React from 'react';
 import Card from '../Card/Card'
 
-const People = ({ people }) => {
-  
-  const renderedCards = people.map( (person, index, handleFavorite) => {
+const People = ({ data, handleFavorite } ) => {
+
+  const renderedCards = data.map( (person, index) => {
 
     return(
       <Card 
             key={index}
-            person={person}
+            data={person}
             handleFavorite={handleFavorite}
        />
     )

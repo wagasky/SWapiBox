@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Card = (props) => {
+  // {name: "Luke Skywalker", favorite: false, category: "person", info: {…}}
 
+const Card = ({ data, handleFavorite }) => {
 
-  const category = Object.keys(props)
-  const card = props[category]
-  const info = card.info
-  const infoKeys = Object.keys(card.info)
+  const info = data.info
+  const infoKeys = Object.keys(info)
   
   const renderedInfo = infoKeys.map( key => {
       return (
@@ -14,22 +13,16 @@ const Card = (props) => {
       )
     })
 
-  selectFavorite(event) {
-
-    const { value } = event.target;
-    this.props.handleFavorite(value)
-
-  }
 
   return (
-    <div className={card.category}>
-      <h5>{card.name}</h5>
+    <div className={data.category}>
+      <h5>{data.name}</h5>
       <ul>
         { renderedInfo }
       </ul>
       <button
-      onClick={() => handleFavorite()}
-      value={card.name}
+      onClick={() => handleFavorite(data.name, data.category)}
+      value={data}
       >Fav</button>
     </div>
 

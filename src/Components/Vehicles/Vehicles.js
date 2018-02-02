@@ -1,14 +1,15 @@
 import React from 'react';
 import Card from '../Card/Card'
 
-const Vehicles = ({ vehicles }) => {
+const Vehicles = ({ data, handleFavorite }) => {
 
-const renderedCards = vehicles.map( (vehicle, index) => {
+const renderedCards = data.map( (vehicle, index) => {
 
     return(
       <Card 
             key={index}
-            vehicle={vehicle}
+            data={vehicle}
+            handleFavorite={handleFavorite}
        />
     )
   });
