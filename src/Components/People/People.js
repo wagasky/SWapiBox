@@ -1,17 +1,17 @@
 import React from 'react';
-import Card from '../Card/Card'
+import Card from '../Card/Card';
 
 const People = ({ data, handleFavorite } ) => {
 
   const renderedCards = data.map( (person, index) => {
 
-    return(
+    return (
       <Card 
-            key={index}
-            data={person}
-            handleFavorite={handleFavorite}
-       />
-    )
+        key={index}
+        data={person}
+        handleFavorite={handleFavorite}
+      />
+    );
   });
 
 
@@ -19,7 +19,7 @@ const People = ({ data, handleFavorite } ) => {
     <div className="peopleCards">
       { renderedCards }
     </div>
-  )
-}
+  );
+};
 
 export default People;

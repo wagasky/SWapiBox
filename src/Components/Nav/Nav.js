@@ -6,7 +6,6 @@ const Nav = ({ handleButton }) => {
 
   return (
     <div>
-      <p>I'm a nav!</p>
       <nav>
         <ul>
           <button><NavLink to='/people'>People</NavLink></button>
@@ -16,8 +15,8 @@ const Nav = ({ handleButton }) => {
         </ul>
       </nav>
     </div>
-  )
-}
+  );
+};
 
 
-export default Nav
+export default Nav;

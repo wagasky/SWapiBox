@@ -1,17 +1,17 @@
 import React from 'react';
-import Card from '../Card/Card'
+import Card from '../Card/Card';
 
 const Planets = ({ data, handleFavorite }) => {
   
   const renderedCards = data.map( (planet, index) => {
 
-    return(
+    return (
       <Card 
-            key={index}
-            data={planet}
-            handleFavorite={handleFavorite}
-       />
-    )
+        key={index}
+        data={planet}
+        handleFavorite={handleFavorite}
+      />
+    );
   });
 
 
@@ -19,7 +19,7 @@ const Planets = ({ data, handleFavorite }) => {
     <div className="planetCards">
       { renderedCards }
     </div>
-  )
-}
+  );
+};
 
 export default Planets;
