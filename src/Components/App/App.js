@@ -12,42 +12,58 @@ class App extends Component {
     super(props)
 
     this.state = {
+      film: [],
       people: [],
       planets: [],
       vehicles: [],
       favorites: [],
-      film: [],
     }
   }
 
   async componentDidMount() {
-    const film = localStorage.film ? await this.pullFromStorage('film') : await getFilm();
-    const people = localStorage.people ? await this.pullFromStorage('people') : await getPeople();
-    const planets = localStorage.planets ? await this.pullFromStorage('planets') : await getPlanets();
-    const vehicles = localStorage.vehicles ? await this.pullFromStorage('vehicles'): await getVehicles();
-    const favorites =  localStorage.favorites ? await this.pullFromStorage('favorites') : [] 
     
+    const { film, people, planets, vehicles, favorites } = await this.initialDataCalls();
     
     await this.setState({ film, people, planets, vehicles, favorites })
+    await this.putIntoStorage('film', film)
     await this.putIntoStorage('people', people)
     await this.putIntoStorage('favorites', favorites)
-    await this.putIntoStorage('planets', planets)
-    await this.putIntoStorage('vehicles', vehicles)
   }
 
-  // click the button, 
-  // get the button category
-  // if localstorage is set from that category, update state from storage
-  // if not, call the api
-  // set state
+  initialDataCalls = async () => {
 
-  putIntoStorage = async (category, object) =>  {
+    const film = localStorage.film ? await this.pullFromStorage('film') : await getFilm();
+    const people = localStorage.people ? await this.pullFromStorage('people') : await getPeople();
+    const planets = localStorage.planets ? await this.pullFromStorage('planets') : []
+    const vehicles = localStorage.vehicles ? await this.pullFromStorage('vehicles'): []
+    const favorites =  localStorage.favorites ? await this.pullFromStorage('favorites') : []
+
+    return { film, people, planets, vehicles, favorites } 
+
+  }
+
+  handleButton = async (category) => {
+
+    if (category === 'planets' ) {
+      const planets = localStorage.planets ? await this.pullFromStorage('planets') : await getPlanets();
+      await this.putIntoStorage('planets', planets)
+      await this.setState({ planets })
+    }
+
+    if (category === 'vehicles') {
+      const vehicles = localStorage.vehicles ? await this.pullFromStorage('vehicles'): await getVehicles();
+      await this.putIntoStorage('vehicles', vehicles)
+      await this.setState({ vehicles })
+    }
+  }
+
+  putIntoStorage = (category, object) =>  {
     const stringifiedObject = JSON.stringify(object);
 
     localStorage.setItem(category, stringifiedObject)
   }
 
-  pullFromStorage(category) {
+  pullFromStorage = (category) => {
 
     const retrievedObject = localStorage.getItem(category);
     const parsedObject = JSON.parse(retrievedObject)
@@ -56,6 +72,7 @@ class App extends Component {
   }
 
   handleFavorite = async (name, category) => {
+
     const favoritedItem = this.state[category].find( object => object.name === name)
     
     favoritedItem.favorite = !favoritedItem.favorite
@@ -71,12 +88,10 @@ class App extends Component {
     await this.putIntoStorage('favorites', this.state.favorites);
   }
 
-  // planets and vehicle on click
-
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header handleButton={this.handleButton}/>
         <CardDisplay people={this.state.people} 
                      planets={this.state.planets}
                      vehicles={this.state.vehicles}
