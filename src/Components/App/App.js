@@ -21,15 +21,35 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    let film = await getFilm();
     let people = await getPeople(); 
     let planets = await getPlanets();
     let vehicles = await getVehicles();
-    let film = await getFilm();
-    this.setState({ people, planets, vehicles, film })
+    
+    this.setState({ film, people, planets, vehicles, film })
   }
 
-  handleFavorite = (name, category) =>  {
-    console.log('favorite clicked!', name, category)
+
+  handleFavorite = async (name, category) => {
+    const favoritedItem = this.state[category].find( object => object.name === name)
+    
+    favoritedItem.favorite = !favoritedItem.favorite
+  
+    const updatedFavorites = favoritedItem.favorite ? 
+    [...this.state.favorites, favoritedItem]
+    : this.state.favorites.filter( favorite => favorite.name !== name);
+
+    await this.setState({
+      favorites: updatedFavorites,
+    })
+
+    await this.putFavoriteInStorage(this.state.favorites);
+  }
+
+  putFavoriteInStorage(favorites) {
+    const stringifiedObject = JSON.stringify(favorites);
+
+    localStorage.setItem('favorites', stringifiedObject)
   }
 
   // planets and vehicle on click
