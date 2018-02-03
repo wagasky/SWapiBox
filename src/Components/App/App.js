@@ -21,14 +21,39 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    let film = await getFilm();
-    let people = await getPeople(); 
-    let planets = await getPlanets();
-    let vehicles = await getVehicles();
+    const film = localStorage.film ? await this.pullFromStorage('film') : await getFilm();
+    const people = localStorage.people ? await this.pullFromStorage('people') : await getPeople();
+    const planets = localStorage.planets ? await this.pullFromStorage('planets') : await getPlanets();
+    const vehicles = localStorage.vehicles ? await this.pullFromStorage('vehicles'): await getVehicles();
+    const favorites =  localStorage.favorites ? await this.pullFromStorage('favorites') : [] 
     
-    this.setState({ film, people, planets, vehicles, film })
+    
+    await this.setState({ film, people, planets, vehicles, favorites })
+    await this.putIntoStorage('people', people)
+    await this.putIntoStorage('favorites', favorites)
+    await this.putIntoStorage('planets', planets)
+    await this.putIntoStorage('vehicles', vehicles)
   }
 
+  // click the button, 
+  // get the button category
+  // if localstorage is set from that category, update state from storage
+  // if not, call the api
+  // set state
+
+  putIntoStorage = async (category, object) =>  {
+    const stringifiedObject = JSON.stringify(object);
+
+    localStorage.setItem(category, stringifiedObject)
+  }
+
+  pullFromStorage(category) {
+
+    const retrievedObject = localStorage.getItem(category);
+    const parsedObject = JSON.parse(retrievedObject)
+
+    return parsedObject
+  }
 
   handleFavorite = async (name, category) => {
     const favoritedItem = this.state[category].find( object => object.name === name)
@@ -43,13 +68,7 @@ class App extends Component {
       favorites: updatedFavorites,
     })
 
-    await this.putFavoriteInStorage(this.state.favorites);
-  }
-
-  putFavoriteInStorage(favorites) {
-    const stringifiedObject = JSON.stringify(favorites);
-
-    localStorage.setItem('favorites', stringifiedObject)
+    await this.putIntoStorage('favorites', this.state.favorites);
   }
 
   // planets and vehicle on click

@@ -14,7 +14,6 @@ const Vehicles = ({ data, handleFavorite }) => {
     )
   });
 
-
   return (
     <div className="vehicleCards">
       { renderedCards }
