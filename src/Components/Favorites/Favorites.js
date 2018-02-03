@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../Card/Card'
+import Card from '../Card/Card';
 
 const Favorites = ({ data, handleFavorite }) => {
 
@@ -10,14 +10,14 @@ const Favorites = ({ data, handleFavorite }) => {
         data={favorite}
         handleFavorite={handleFavorite}
       />
-    )
-  })
+    );
+  });
 
   return (
     <div className="favoriteCards">
       { renderedCards }
     </div>
-  )
-}
+  );
+};
 
 export default Favorites;

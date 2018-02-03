@@ -3,7 +3,7 @@ import React from 'react';
 
 const IntroText = ({ film }) => {
 
-const { title, releaseYear, numeral, text } = film
+  const { title, releaseYear, numeral, text } = film;
 
   return (
     <div>
@@ -13,7 +13,7 @@ const { title, releaseYear, numeral, text } = film
       <h5>{releaseYear}</h5>
     </div>
 
-  )
-}
+  );
+};
 
 export default IntroText;

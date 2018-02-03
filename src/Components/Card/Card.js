@@ -2,16 +2,16 @@ import React from 'react';
 
 const Card = ({ data, handleFavorite }) => {
 
-  const info = data.info
-  const infoKeys = Object.keys(info)
+  const info = data.info;
+  const infoKeys = Object.keys(info);
   
   const renderedInfo = infoKeys.map( (key, index) => {
-      return (
-        <li key={index}>
-          {key}: {info[key]}
-        </li>
-      )
-    })
+    return (
+      <li key={index}>
+        {key}: {info[key]}
+      </li>
+    );
+  });
 
 
   return (
@@ -26,8 +26,8 @@ const Card = ({ data, handleFavorite }) => {
       </button>
     </div>
 
-  )
+  );
 
-}
+};
 
 export default Card;
