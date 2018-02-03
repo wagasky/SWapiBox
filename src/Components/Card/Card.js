@@ -21,9 +21,9 @@ const Card = ({ data, handleFavorite }) => {
         { renderedInfo }
       </ul>
       <button
-      onClick={() => handleFavorite(data.name, data.category)}
-      value={data}
-      >Fav</button>
+        onClick={() => handleFavorite(data.name, data.category)}
+        value={data}>Fav
+      </button>
     </div>
 
   )

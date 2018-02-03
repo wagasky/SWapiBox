@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Nav from '../Nav/Nav'
 
-const Header = () => {
+const Header = ({ handleButton }) => {
   return(
     <div>
      <h1>SWapiBox</h1>
-     <Nav />
+     <Nav handleButton={handleButton} />
     </div>
   )
 }
