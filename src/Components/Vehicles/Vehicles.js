@@ -3,7 +3,7 @@ import Card from '../Card/Card'
 
 const Vehicles = ({ data, handleFavorite }) => {
 
-const renderedCards = data.map( (vehicle, index) => {
+  const renderedCards = data.map( (vehicle, index) => {
 
     return(
       <Card 

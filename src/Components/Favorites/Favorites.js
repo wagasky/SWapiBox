@@ -1,11 +1,21 @@
 import React from 'react';
 import Card from '../Card/Card'
 
-const Favorites = () => {
+const Favorites = ({ data, handleFavorite }) => {
+
+  const renderedCards = data.map((favorite, index) => {
+    return (
+      <Card 
+        key={index}
+        data={favorite}
+        handleFavorite={handleFavorite}
+      />
+    )
+  })
+
   return (
-    <div>
-      <p>I'm Favorites!</p>
-      <Card />
+    <div className="favoriteCards">
+      { renderedCards }
     </div>
   )
 }

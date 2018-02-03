@@ -1,15 +1,15 @@
 import React from 'react';
 
-  // {name: "Luke Skywalker", favorite: false, category: "person", info: {…}}
-
 const Card = ({ data, handleFavorite }) => {
 
   const info = data.info
   const infoKeys = Object.keys(info)
   
-  const renderedInfo = infoKeys.map( key => {
+  const renderedInfo = infoKeys.map( (key, index) => {
       return (
-        <li>{key}: {info[key]}</li>
+        <li key={index}>
+          {key}: {info[key]}
+        </li>
       )
     })
 

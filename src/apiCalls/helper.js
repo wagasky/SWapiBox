@@ -29,7 +29,7 @@ const formatPeople = (arrayOfPeopleObjects) => {
       return { 
         name: name,
         favorite: false, 
-        category: 'person',
+        category: 'people',
         info: {
           homeworld: homeworldName,
           species: speciesData,
@@ -50,7 +50,7 @@ const formatPlanets = async (arrayOfPlanetObjects) => {
       return {
         name: planet.name,
         favorite: false,
-        category: 'planet',
+        category: 'planets',
         info: {
           terrain: planet.terrain,
           population: planet.population,
@@ -69,7 +69,7 @@ const formatVehicles = async (arrayOfVehicleObjects) => {
 
       return {
         name: vehicle.name,
-        category: 'vehicle',
+        category: 'vehicles',
         favorite: false,
         info: {
           model: vehicle.model,
