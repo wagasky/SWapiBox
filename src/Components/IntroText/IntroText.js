@@ -1,5 +1,5 @@
 import React from 'react';
-
+import propTypes from 'prop-types';
 
 const IntroText = ({ film }) => {
 
@@ -14,6 +14,10 @@ const IntroText = ({ film }) => {
     </div>
 
   );
+};
+
+IntroText.propTypes = {
+  film: propTypes.oneOfType([propTypes.array, propTypes.object]),
 };
 
 export default IntroText;

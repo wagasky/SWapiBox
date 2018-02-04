@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, func } from 'prop-types';
 
 const Card = ({ data, handleFavorite }) => {
 
@@ -13,7 +14,6 @@ const Card = ({ data, handleFavorite }) => {
     );
   });
 
-
   return (
     <div className={data.category}>
       <h5>{data.name}</h5>
@@ -25,9 +25,12 @@ const Card = ({ data, handleFavorite }) => {
         value={data}>Fav
       </button>
     </div>
-
   );
+};
 
+Card.propTypes = {
+  data: object.isRequired,
+  handleFavorite: func.isRequired,
 };
 
 export default Card;

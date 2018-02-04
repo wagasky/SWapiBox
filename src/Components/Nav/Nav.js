@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { func } from 'prop-types';
 
 
 const Nav = ({ handleButton }) => {
@@ -18,5 +19,8 @@ const Nav = ({ handleButton }) => {
   );
 };
 
+Nav.propTypes = {
+  handleButton: func.isRequired,
+};
 
 export default Nav;

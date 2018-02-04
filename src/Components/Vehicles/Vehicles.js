@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../Card/Card';
+import { array, func } from 'prop-types';
 
 const Vehicles = ({ data, handleFavorite }) => {
 
@@ -19,6 +20,11 @@ const Vehicles = ({ data, handleFavorite }) => {
       { renderedCards }
     </div>
   );
+};
+
+Vehicles.propTypes = {
+  data: array.isRequired,
+  handleFavorite: func.isRequired, 
 };
 
 export default Vehicles;
