@@ -23,8 +23,8 @@ const People = ({ data, handleFavorite } ) => {
 };
 
 People.propTypes = {
-  data: array.isRequired,
-  handleFavorite: func.isRequired,
+  data: array,
+  handleFavorite: func,
 };
 
 export default People;

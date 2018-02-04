@@ -32,5 +32,5 @@ CardDisplay.propTypes = {
   vehicles: array,
   favorites: array,
   film: propTypes.oneOfType([propTypes.array, propTypes.object]),
-  handleFavorite: func.isRequired,
+  handleFavorite: func,
 };

@@ -16,15 +16,15 @@ const Planets = ({ data, handleFavorite }) => {
   });
 
   return (
-    <div className="planetCards">
+    <div className="Planets">
       { renderedCards }
     </div>
   );
 };
 
 Planets.propTypes = {
-  data: array.isRequired,
-  handleFavorite: func.isRequired,
+  data: array,
+  handleFavorite: func,
 };
 
 export default Planets;

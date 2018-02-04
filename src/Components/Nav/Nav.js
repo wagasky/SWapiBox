@@ -20,7 +20,7 @@ const Nav = ({ handleButton }) => {
 };
 
 Nav.propTypes = {
-  handleButton: func.isRequired,
+  handleButton: func,
 };
 
 export default Nav;

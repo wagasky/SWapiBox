@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IntroText should match snapshot 1`] = `
+<div>
+  <p />
+  <h5 />
+  <h5>
+    Episode 
+  </h5>
+  <h5 />
+</div>
+`;

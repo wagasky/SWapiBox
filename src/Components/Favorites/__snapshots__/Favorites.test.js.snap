@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites should match snapshot with 1 card 1`] = `
+<div
+  className="favoriteCards"
+>
+  <Card
+    data={
+      Object {
+        "homeworld": "Tatooine",
+        "name": "Luke Skywalker",
+        "population": "200000",
+        "species": "Human",
+      }
+    }
+    key="0"
+  />
+</div>
+`;
+
+exports[`Favorites should match snapshot with 3 cards 1`] = `
+<div
+  className="favoriteCards"
+>
+  <Card
+    data={
+      Object {
+        "homeworld": "Tatooine",
+        "name": "Luke Skywalker",
+        "population": "200000",
+        "species": "Human",
+      }
+    }
+    key="0"
+  />
+  <Card
+    data={
+      Object {
+        "climate": "temperate",
+        "name": "Alderaan",
+        "population": "2000000000",
+        "residents": "Leia Organa
+      Bail Prestor Organa
+      Raymus Antilles",
+        "terrain": "grasslands, mountains",
+      }
+    }
+    key="1"
+  />
+  <Card
+    data={
+      Object {
+        "model": "t-47 airspeeder",
+        "name": "Snowspeeder",
+        "passengers": "0",
+        "vehicleClass": "airspeeder",
+      }
+    }
+    key="2"
+  />
+</div>
+`;

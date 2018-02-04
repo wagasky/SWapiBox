@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`People should match snapshot 1`] = `
+<div
+  className="peopleCards"
+>
+  <Card
+    data={
+      Object {
+        "homeworld": "Tatooine",
+        "name": "Luke Skywalker",
+        "population": "200000",
+        "species": "Human",
+      }
+    }
+    key="0"
+  />
+  <Card
+    data={
+      Object {
+        "homeworld": "Tatooine",
+        "name": "C-3PO",
+        "population": "200000",
+        "species": "Droid",
+      }
+    }
+    key="1"
+  />
+  <Card
+    data={
+      Object {
+        "homeworld": "Naboo",
+        "name": "R2-D2",
+        "population": "4500000000",
+        "species": "Droid",
+      }
+    }
+    key="2"
+  />
+</div>
+`;

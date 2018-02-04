@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vehicles should match snapshot 1`] = `
+<div
+  className="vehicleCards"
+>
+  <Card
+    data={
+      Object {
+        "model": "Digger Crawler",
+        "name": "Sand Crawler",
+        "passengers": "30",
+        "vehicleClass": "wheeled",
+      }
+    }
+    key="0"
+  />
+  <Card
+    data={
+      Object {
+        "model": "T-16 skyhopper",
+        "name": "T-16 skyhopper",
+        "passengers": "1",
+        "vehicleClass": "repulsorcraft",
+      }
+    }
+    key="1"
+  />
+  <Card
+    data={
+      Object {
+        "model": "X-34 landspeeder",
+        "name": "X-34 landspeeder",
+        "passengers": "1",
+        "vehicleClass": "repulsorcraft",
+      }
+    }
+    key="2"
+  />
+</div>
+`;
