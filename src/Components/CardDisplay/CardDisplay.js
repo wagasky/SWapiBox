@@ -5,6 +5,7 @@ import Planets from '../Planets/Planets';
 import Favorites from '../Favorites/Favorites';
 import IntroText from '../IntroText/IntroText';
 import { Switch, Route } from 'react-router-dom';
+import propTypes, { array, func } from 'prop-types';
 
 const CardDisplay = ({ people, planets, vehicles, favorites, film, handleFavorite }) => {
 
@@ -25,3 +26,11 @@ export default CardDisplay;
 
 
 
+CardDisplay.propTypes = {
+  people: array,
+  planets: array,
+  vehicles: array,
+  favorites: array,
+  film: propTypes.oneOfType([propTypes.array, propTypes.object]),
+  handleFavorite: func.isRequired,
+};

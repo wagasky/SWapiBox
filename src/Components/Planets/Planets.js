@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../Card/Card';
+import { array, func } from 'prop-types';
 
 const Planets = ({ data, handleFavorite }) => {
   
@@ -14,12 +15,16 @@ const Planets = ({ data, handleFavorite }) => {
     );
   });
 
-
   return (
     <div className="planetCards">
       { renderedCards }
     </div>
   );
+};
+
+Planets.propTypes = {
+  data: array.isRequired,
+  handleFavorite: func.isRequired,
 };
 
 export default Planets;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../Card/Card';
+import { array, func } from 'prop-types';
 
 const Favorites = ({ data, handleFavorite }) => {
 
@@ -18,6 +19,11 @@ const Favorites = ({ data, handleFavorite }) => {
       { renderedCards }
     </div>
   );
+};
+
+Favorites.propTypes = {
+  data: array.isRequired,
+  handleFavorite: func.isRequired,
 };
 
 export default Favorites;

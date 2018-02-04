@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Nav from '../Nav/Nav';
+import { func } from 'prop-types';
 
 const Header = ({ handleButton }) => {
   return (
@@ -10,6 +11,10 @@ const Header = ({ handleButton }) => {
     </div>
 
   );
+};
+
+Header.propTypes = {
+  handleButton: func.isRequired,
 };
 
 export default Header;

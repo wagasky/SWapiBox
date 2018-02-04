@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import CardDisplay from '../CardDisplay/CardDisplay';
-import { BrowserRouter } from 'react-router-dom';
-import PropTypes from 'prop-types'; 
+// import { BrowserRouter } from 'react-router-dom'; 
 import './App.css';
 import { 
   getPeople, 
@@ -57,7 +56,7 @@ class App extends Component {
       await this.setState({ planets });
     }
 
-    `get{variable}()`
+    // `get{variable}()`
 
     if (category === 'vehicles') {
       const vehicles = localStorage.vehicles ? 
