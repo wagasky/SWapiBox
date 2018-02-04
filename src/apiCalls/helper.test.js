@@ -19,15 +19,30 @@ import {
 } from './helper'
 
 
-const {
-  peopleData, 
-  planetData, 
-  vehicleData, 
-  filmData,
-  homeWorldData,
-  speciesData,
-  residentNamesData,
-  mockRawData } = '../mockApiData.js'
+// import {
+//   peopleData, 
+//   planetData, 
+//   vehicleData, 
+//   filmData,
+//   homeWorldData,
+//   speciesData,
+//   residentNamesData,
+//   mockRawData } from '../mockApiData.js'
+
+
+  const filmData = [
+      {
+        "title":"A New Hope",
+        "releaseYear":"1977-05-25",
+        "number": 'IV',
+        "text":"It is a period of civil war.\r\nRebel spaceships, striking\r\nfrom a hidden base, have won\r\ntheir first victory against\r\nthe evil Galactic Empire.\r\n\r\nDuring the battle, Rebel\r\nspies managed to steal secret\r\nplans to the Empire's\r\nultimate weapon, the DEATH\r\nSTAR, an armored space\r\nstation with enough power\r\nto destroy an entire planet.\r\n\r\nPursued by the Empire's\r\nsinister agents, Princess\r\nLeia races home aboard her\r\nstarship, custodian of the\r\nstolen plans that can save her\r\npeople and restore\r\nfreedom to the galaxy....",
+      }
+    ]
+
+  const rawFilmData = [ { title: 'A New Hope',
+             releaseYear: '1977-05-25',
+             number: 'IV',
+             text: 'It is a period of civil war.\r\nRebel spaceships, striking\r\nfrom a hidden base, have won\r\ntheir first victory against\r\nthe evil Galactic Empire.\r\n\r\nDuring the battle, Rebel\r\nspies managed to steal secret\r\nplans to the Empire\'s\r\nultimate weapon, the DEATH\r\nSTAR, an armored space\r\nstation with enough power\r\nto destroy an entire planet.\r\n\r\nPursued by the Empire\'s\r\nsinister agents, Princess\r\nLeia races home aboard her\r\nstarship, custodian of the\r\nstolen plans that can save her\r\npeople and restore\r\nfreedom to the galaxy....' } ]
 
   describe('generateRandomNumber tests', () => {
 
@@ -40,15 +55,16 @@ const {
 
   })
 
-  describe.skip('formatFilm tests', () => {
-    let filmData
+  describe('formatFilm tests', () => {
 
 
-    it('should take raw filmData and return a formatted object', () => {
-      const rawData = filmData
-      const cleanData = formatFilm(rawData, 1)
+    it('should take raw filmData and return a formatted object', async () => {
+  
+      let filmData
+      const cleanData = await formatFilm(rawFilmData, 2)
+      console.log(cleanData)
 
-      expect(cleanData.title).toEqual('')
+      expect(cleanData).toEqual(filmData)
 
     })
   })

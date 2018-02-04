@@ -9,12 +9,18 @@ import {
 
 const fetchAndParse = async (url) => {
 
-  const initialFetch = await fetch(url);
+  try {
 
-  if (initialFetch.status <= 200) {
-    return await initialFetch.json()
-  } else {
-    throw(new Error('Error in fetchAndParse'))
+  const initialFetch = await fetch(url);
+  const fetchedObj = await initialFetch.json()
+
+    if (initialFetch.status <= 200) {
+      return fetchedObj
+    } else {
+      throw new Error('Bad status code') 
+    }
+  } catch(err) {
+     throw new Error('Error in fetchAndParse')
   }
 }
 
@@ -22,14 +28,14 @@ const getFilm = async () => {
   let number = generateRandomNumber()
   try {
     const results  = await fetchAndParse(`https://swapi.co/api/films/${number}`);
+    console.log(results)
     const film = await formatFilm(results, number)
 
     return film
-  } catch(e) {
-    const error = new Error('getFilm failed to fetch');
-    return error;
-  }
 
+  } catch(err) {
+    throw new Error('getFilm failed to fetch') ;
+  }
 }
 
 const getPeople = async () => {
@@ -38,9 +44,8 @@ const getPeople = async () => {
     const people = await formatPeople(results)
 
     return people;
-  } catch(e) {
-    const error = new Error('getPeople failed to fetch');
-    return error;
+  } catch(err) {
+    throw new Error('getPeople failed to fetch') ;
   }
 };
 
@@ -50,9 +55,9 @@ const getHomeWorld = async (homeworldUrl) => {
 
     return { homeworldName: name, population }
 
-  } catch(e) {
-    const error = new Error('getHomeWorld failed to fetch')
-    return error;
+  } catch(err) {
+    throw new Error('getHomeWorld failed to fetch'); 
+  
   }
   
 }
@@ -63,21 +68,20 @@ const getSpecies = async (speciesURL) => {
 
     return name
 
-  } catch(e) {
-    const error = new Error('getSpecies failed to fetch');
-    return error;
+  } catch(err) {
+    throw new Error('getSpecies failed to fetch') ;
   }
 }
 
 const getPlanets = async () => {
   try {
-    const { results } = await fetchAndParse('https://swapi.co/api/planets/')
-    const planets = await formatPlanets(results)
+    const fetchedObj = await fetchAndParse('https://swapi.co/api/planets/')
+    const planets = await formatPlanets(fetchedObj.results)
 
-    return planets;
-  } catch(e) {
-    const error = new Error('getPlanets failed to fetch');
-    return error;
+
+    return planets
+  } catch(err) {
+    throw new Error('getPlanets failed to fetch') ;
   }
 }
 
@@ -90,9 +94,8 @@ const getResidentNames = async (residents) => {
       return residentObject.name
     })
      return Promise.all(residentData);
-  } catch(e) {
-    const error = new Error('getResidentNames failed to fetch');
-    return error;
+  } catch(err) {
+    throw new Error('getResidentNames failed to fetch');
   }    
 }
 
@@ -103,9 +106,8 @@ const getVehicles = async () => {
     const vehicles = await formatVehicles(results)
 
     return vehicles
-  } catch(e) {
-    const error = new Error('getVehicles failed to fetch');
-    return error;
+  } catch(err) {
+    throw new Error('getVehicles failed to fetch');
   }
 }
 
