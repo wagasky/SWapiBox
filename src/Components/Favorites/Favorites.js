@@ -22,8 +22,8 @@ const Favorites = ({ data, handleFavorite }) => {
 };
 
 Favorites.propTypes = {
-  data: array.isRequired,
-  handleFavorite: func.isRequired,
+  data: array,
+  handleFavorite: func,
 };
 
 export default Favorites;

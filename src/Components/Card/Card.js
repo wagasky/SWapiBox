@@ -29,8 +29,8 @@ const Card = ({ data, handleFavorite }) => {
 };
 
 Card.propTypes = {
-  data: object.isRequired,
-  handleFavorite: func.isRequired,
+  data: object,
+  handleFavorite: func,
 };
 
 export default Card;

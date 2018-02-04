@@ -10,3 +10,8 @@ it.skip('renders without crashing', () => {
   ReactDOM.render(<Card />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+// snapshot - if one card, show one
+// snapshot - if 3 cards, show three
+// handleFave is called on click
+

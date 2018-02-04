@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match snapshot 1`] = `
+<div>
+  <nav>
+    <ul>
+      <button>
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/people"
+        >
+          People
+        </NavLink>
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/vehicles"
+        >
+          Vehicles
+        </NavLink>
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/planets"
+        >
+          Planets
+        </NavLink>
+      </button>
+      <button>
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/favorites"
+        >
+          Favorites
+        </NavLink>
+      </button>
+    </ul>
+  </nav>
+</div>
+`;

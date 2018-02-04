@@ -23,8 +23,8 @@ const Vehicles = ({ data, handleFavorite }) => {
 };
 
 Vehicles.propTypes = {
-  data: array.isRequired,
-  handleFavorite: func.isRequired, 
+  data: array,
+  handleFavorite: func, 
 };
 
 export default Vehicles;
