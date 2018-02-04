@@ -37,16 +37,11 @@ class App extends Component {
 
   initialDataCalls = async () => {
 
-    const film = localStorage.film ? 
-      await this.pullFromStorage('film') : await getFilm();
-    const people = localStorage.people ? 
-      await this.pullFromStorage('people') : await getPeople();
-    const planets = localStorage.planets ? 
-      await this.pullFromStorage('planets') : [];
-    const vehicles = localStorage.vehicles ?
-      await this.pullFromStorage('vehicles'): [];
-    const favorites =  localStorage.favorites ? 
-      await this.pullFromStorage('favorites') : [];
+    const film = localStorage.film ? await this.pullFromStorage('film') : await getFilm();
+    const people = localStorage.people ? await this.pullFromStorage('people') : await getPeople();
+    const planets = localStorage.planets ? await this.pullFromStorage('planets') : [];
+    const vehicles = localStorage.vehicles ? await this.pullFromStorage('vehicles'): [];
+    const favorites =  localStorage.favorites ? await this.pullFromStorage('favorites') : [];
 
     return { film, people, planets, vehicles, favorites };
 
@@ -55,11 +50,14 @@ class App extends Component {
   handleButton = async (category) => {
 
     if (category === 'planets' ) {
+      // pull this into a function
       const planets = localStorage.planets ? 
         await this.pullFromStorage('planets') : await getPlanets();
       await this.putIntoStorage('planets', planets);
       await this.setState({ planets });
     }
+
+    `get{variable}()`
 
     if (category === 'vehicles') {
       const vehicles = localStorage.vehicles ? 
