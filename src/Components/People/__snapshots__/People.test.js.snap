@@ -2,7 +2,7 @@
 
 exports[`People should match snapshot 1`] = `
 <div
-  className="peopleCards"
+  className="people-cards"
 >
   <Card
     data={

@@ -4,39 +4,6 @@
   background: #000;
   overflow: hidden;
 }
-
-/*  .start {
-    font-size: 200%;
-    $start-width: 14em;
-    width: $start-width;
-    margin: -4em 0 0 (- $start-width / 2);
-    text-align: center;
-    cursor: pointer;
-    
-    span {
-      color: rgb(75, 213, 238); 
-    }
-  }    
-  
-  .intro {
-    $intro-width: 15em;
-    width: $intro-width;
-    margin: 0 0 0 (- $intro-width / 2);
-    font-size: 200%;
-    font-weight: 400;
-    color: rgb(75, 213, 238);
-    opacity: 0;
-    animation: intro 6s ease-out 1s;
-  }
-  
-  .logo {
-    opacity: 0;
-    animation: logo 9s ease-out 9s; 
-    
-    svg {
-      width: inherit;
-    }
-  }*/
   
 .main h1 {
   font-size: 2em;

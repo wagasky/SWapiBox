@@ -2,7 +2,7 @@
 
 exports[`Planets should match snapshot 1`] = `
 <div
-  className="Planets"
+  className="planet-cards"
 >
   <Card
     data={
