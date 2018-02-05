@@ -1,0 +1,30 @@
+.nav, 
+ul { 
+  padding: 0px 0px;
+  margin: 0;
+  background: black;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+ul .nav {
+  flex-direction: column;
+  align-content: center;
+  height: 200px;
+}
+
+a .nav {
+  text-decoration: none;
+  background-color: black;
+  color: white;
+}
+
+nav ul button .nav {
+  text-decoration: none;
+  width: 200px;
+  background-color: black;
+  color: white;
+}

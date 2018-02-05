@@ -4,19 +4,25 @@
 .favorites {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: top;
   border: #7EFFD2 solid 2.5px ;
-  box-shadow: 0px -1px 1px #7EFFD2;
- /* background-opacity: .4; 
-  background-color: #7EFFD2;*/
-  max-width: 200px;
-  min-width: 150px;
+  box-shadow: 2px #7EFFD2;
+  background-color: rgba(126, 225, 210, .2);
+  width: 220px;
+  min-height: 300px;
+  max-height: 450px;
   margin: 30px;
   padding: 0px;
 }
 
 /*3654FF*/
+
+ul {
+  margin: 0;
+  padding: 0;
+
+}
 
 h5, li {
   color: white;
@@ -24,16 +30,34 @@ h5, li {
 }
 
 h5 {
+  color: #7EFFD2;
+  text-transform: uppercase;
   text-align: center;
+  font-size: 20px;
+  margin: 20px 10px;
 }
 
 li {
+  color: white;
   text-align: left;
+  width: 180px;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1.5px;
 }
 
+button .favorite,
+button .notFavorite {
+  width: 30px;
+  border: none;
+  margin: 10px 0px 10px 0px;
+}
 
 .favorite {
-  width: 20px;
-  background-color: transparent;
-  color: white;
+  background-color:  #7EFFD2;
+}
+
+.notFavorite {
+  background-color: white;
 }

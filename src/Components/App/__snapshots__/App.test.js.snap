@@ -4,16 +4,8 @@ exports[`App state should match snapshot 1`] = `
 <div
   className="App"
 >
-  <Header
-    handleButton={[Function]}
-  />
-  <CardDisplay
-    favorites={Array []}
-    film={Array []}
-    handleFavorite={[Function]}
-    people={Array []}
-    planets={Array []}
-    vehicles={Array []}
-  />
+  <p>
+    Be patient with the force...
+  </p>
 </div>
 `;

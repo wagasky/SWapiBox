@@ -28,7 +28,6 @@ const getFilm = async () => {
   let number = generateRandomNumber()
   try {
     const results  = await fetchAndParse(`https://swapi.co/api/films/${number}`);
-    console.log(results)
     const film = await formatFilm(results, number)
 
     return film

@@ -19,17 +19,6 @@ import {
 } from './helper'
 
 
-// import {
-//   peopleData, 
-//   planetData, 
-//   vehicleData, 
-//   filmData,
-//   homeWorldData,
-//   speciesData,
-//   residentNamesData,
-//   mockRawData } from '../mockApiData.js'
-
-
   const filmData = [
       {
         "title":"A New Hope",
@@ -55,28 +44,3 @@ import {
 
   })
 
-  describe('formatFilm tests', () => {
-
-
-    it('should take raw filmData and return a formatted object', async () => {
-  
-      let filmData
-      const cleanData = await formatFilm(rawFilmData, 2)
-      console.log(cleanData)
-
-      expect(cleanData).toEqual(filmData)
-
-    })
-  })
-
-  describe('formatPeople tests', () => {
-
-  })
-
-  describe('formatPlanets tests', () => {
-
-  })
-
-  describe('formatVehicles tests', () => {
-
-  })

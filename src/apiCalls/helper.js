@@ -31,9 +31,9 @@ const formatPeople = (arrayOfPeopleObjects) => {
         favorite: false, 
         category: 'people',
         info: {
-          homeworld: homeworldName,
-          species: speciesData,
-          population: population,
+          Homeworld: homeworldName,
+          Species: speciesData,
+          Population: population,
         },
       }
     }) 
@@ -46,16 +46,18 @@ const formatPlanets = async (arrayOfPlanetObjects) => {
       const { name, terrain, population, climate, residents } = planet;
 
       const residentData = await getResidentNames(residents)
+      const none = 'none'
+
 
       return {
         name: planet.name,
         favorite: false,
         category: 'planets',
         info: {
-          terrain: planet.terrain,
-          population: planet.population,
-          climate: planet.climate,
-          residents: residentData ? residentData : 'none',
+          Terrain: planet.terrain,
+          Population: planet.population,
+          Climate: planet.climate,
+          Residents: residentData.join(', '),
         }, 
       }
     })
@@ -72,9 +74,9 @@ const formatVehicles = async (arrayOfVehicleObjects) => {
         category: 'vehicles',
         favorite: false,
         info: {
-          model: vehicle.model,
-          vehicleClass: vehicle.vehicle_class,
-          passengers: vehicle.passengers,
+          Model: vehicle.model,
+          VehicleClass: vehicle.vehicle_class,
+          Passengers: vehicle.passengers,
         }
       }
     })
