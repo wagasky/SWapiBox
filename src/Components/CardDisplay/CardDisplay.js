@@ -6,18 +6,37 @@ import Favorites from '../Favorites/Favorites';
 import IntroText from '../IntroText/IntroText';
 import { Switch, Route } from 'react-router-dom';
 import propTypes, { array, func } from 'prop-types';
-import './CardDisplay.css'
+import './CardDisplay.css';
 
-const CardDisplay = ({ people, planets, vehicles, favorites, film, handleFavorite }) => {
+const CardDisplay = 
+({ people, planets, vehicles, favorites, film, handleFavorite }) => {
 
   return (
     <div className="card-display">
       <Switch>
-        <Route exact path='/' component={ () => <IntroText film={film} /> } />
-        <Route exact path='/people' component={ () => <People data={people} handleFavorite={handleFavorite} /> } />
-        <Route exact path='/vehicles' component={ () => <Vehicles data={vehicles} handleFavorite={handleFavorite}/> }/>
-        <Route exact path='/planets' component={ () => <Planets data={planets} handleFavorite={handleFavorite}/> } />
-        <Route exact path='/favorites' component={ () => <Favorites data={favorites} handleFavorite={handleFavorite}/> }/>
+        <Route 
+          exact path='/' 
+          component={ () => <IntroText film={film} /> } />
+        <Route 
+          exact path='/people' 
+          component={ () => <People 
+            data={people} 
+            handleFavorite={handleFavorite} /> } />
+        <Route 
+          exact path='/vehicles' 
+          component={ () => <Vehicles 
+            data={vehicles} 
+            handleFavorite={handleFavorite}/> }/>
+        <Route 
+          exact path='/planets' 
+          component={ () => <Planets 
+            data={planets} 
+            handleFavorite={handleFavorite}/> } />
+        <Route 
+          exact path='/favorites' 
+          component={ () => <Favorites 
+            data={favorites} 
+            handleFavorite={handleFavorite}/> }/>
       </Switch>
     </div>
   );

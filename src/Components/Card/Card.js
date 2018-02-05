@@ -1,11 +1,13 @@
 import React from 'react';
 import { object, func } from 'prop-types';
-import './Card.css'
+import './Card.css';
 
 const Card = ({ data, handleFavorite }) => {
 
   const info = data.info;
   const infoKeys = Object.keys(info);
+
+  const classList = data.favorite ? 'favorite' : 'notFavorite';
   
   const renderedInfo = infoKeys.map( (key, index) => {
     return (
@@ -18,9 +20,9 @@ const Card = ({ data, handleFavorite }) => {
   return (
     <div className={data.category}>
       <button
-        className="favorite"
+        className={classList}
         onClick={() => handleFavorite(data.name, data.category)}
-        value={data}>Fav
+        value={data}> &#9733;
       </button>
       <h5>{data.name}</h5>
       <ul>

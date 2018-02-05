@@ -5,7 +5,7 @@ import { func } from 'prop-types';
 const Header = ({ handleButton }) => {
   return (
 
-    <div>
+    <div className="header">
       <Nav handleButton={handleButton} />
     </div>
 

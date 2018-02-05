@@ -6,12 +6,8 @@ import App from './App';
 import { shallow } from 'enzyme';
 import mockApiData from '../../mockApiData.js'
 
- global.localStorage = {
-    getItem: function(query){ return JSON.stringify(mockApiData[query]); },
-    setItem: function(){}
-  };
 
-describe.skip('App state', () => {
+describe('App state', () => {
 
   let renderedComponent;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../Card/Card';
 import { array, func } from 'prop-types';
-import './Favorites.css'
+import './Favorites.css';
 
 const Favorites = ({ data, handleFavorite }) => {
 

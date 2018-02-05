@@ -7,14 +7,6 @@ exports[`IntroText should match snapshot 1`] = `
   <div
     className="fade"
   />
-  <audio
-    preload="auto"
-  >
-    <source
-      src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.mp3"
-      type="audio/mpeg"
-    />
-  </audio>
   <section
     className="star-wars"
   >
@@ -24,13 +16,20 @@ exports[`IntroText should match snapshot 1`] = `
       <div
         className="title"
       >
+        <h1>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg"
+          />
+        </h1>
         <h4>
           Episode 
         </h4>
         <h1 />
-        <h4 />
       </div>
       <p />
+      <p>
+        Click people to build the resistance...
+      </p>
     </div>
   </section>
 </div>
