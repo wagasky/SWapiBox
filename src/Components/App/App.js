@@ -45,22 +45,22 @@ class App extends Component {
 
   }
 
+  callGetPlanets = async () => {
+    const planets = localStorage.planets ? await this.pullFromStorage('planets') : await getPlanets();
+
+    await this.putIntoStorage('planets', planets);
+    await this.setState({ planets });
+  }
+
+  callGetVehicles = async () => {
+    const vehicles = localStorage.vehicles ? await this.pullFromStorage('vehicles'): await getVehicles();
+    
+    await this.putIntoStorage('vehicles', vehicles);
+    await this.setState({ vehicles });
+  }
+
   handleButton = async (category) => {
-
-    if (category === 'planets' ) {
-      const planets = localStorage.planets ? 
-        await this.pullFromStorage('planets') : await getPlanets();
-      await this.putIntoStorage('planets', planets);
-      await this.setState({ planets });
-    }
-
-
-    if (category === 'vehicles') {
-      const vehicles = localStorage.vehicles ? 
-        await this.pullFromStorage('vehicles'): await getVehicles();
-      await this.putIntoStorage('vehicles', vehicles);
-      await this.setState({ vehicles });
-    }
+    (category === 'planets') ? this.callGetPlanets() : this.callGetVehicles()
   }
 
   putIntoStorage = (category, object) =>  {

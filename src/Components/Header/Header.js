@@ -6,7 +6,6 @@ const Header = ({ handleButton }) => {
   return (
 
     <div>
-      <h1>SWapiBox</h1>
       <Nav handleButton={handleButton} />
     </div>
 
