@@ -1,0 +1,39 @@
+.people,
+.vehicles,
+.planets, 
+.favorites {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: top;
+  border: #7EFFD2 solid 2.5px ;
+  box-shadow: 0px -1px 1px #7EFFD2;
+ /* background-opacity: .4; 
+  background-color: #7EFFD2;*/
+  max-width: 200px;
+  min-width: 150px;
+  margin: 30px;
+  padding: 0px;
+}
+
+/*3654FF*/
+
+h5, li {
+  color: white;
+  list-style: none;
+}
+
+h5 {
+  text-align: center;
+}
+
+li {
+  text-align: left;
+}
+
+
+.favorite {
+  width: 20px;
+  background-color: transparent;
+  color: white;
+}

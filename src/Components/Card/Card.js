@@ -1,5 +1,6 @@
 import React from 'react';
 import { object, func } from 'prop-types';
+import './Card.css'
 
 const Card = ({ data, handleFavorite }) => {
 
@@ -16,14 +17,15 @@ const Card = ({ data, handleFavorite }) => {
 
   return (
     <div className={data.category}>
+      <button
+        className="favorite"
+        onClick={() => handleFavorite(data.name, data.category)}
+        value={data}>Fav
+      </button>
       <h5>{data.name}</h5>
       <ul>
         { renderedInfo }
       </ul>
-      <button
-        onClick={() => handleFavorite(data.name, data.category)}
-        value={data}>Fav
-      </button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card/Card';
 import { array, func } from 'prop-types';
+import './People.css'
 
 const People = ({ data, handleFavorite } ) => {
 
@@ -16,7 +17,7 @@ const People = ({ data, handleFavorite } ) => {
   });
 
   return (
-    <div className="peopleCards">
+    <div className="people-cards">
       { renderedCards }
     </div>
   );
