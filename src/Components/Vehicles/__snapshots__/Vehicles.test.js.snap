@@ -2,7 +2,7 @@
 
 exports[`Vehicles should match snapshot 1`] = `
 <div
-  className="vehicleCards"
+  className="vehicle-cards"
 >
   <Card
     data={

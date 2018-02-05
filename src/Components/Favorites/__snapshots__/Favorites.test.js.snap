@@ -2,7 +2,7 @@
 
 exports[`Favorites should match snapshot with 1 card 1`] = `
 <div
-  className="favoriteCards"
+  className="favorite-cards"
 >
   <Card
     data={
@@ -20,7 +20,7 @@ exports[`Favorites should match snapshot with 1 card 1`] = `
 
 exports[`Favorites should match snapshot with 3 cards 1`] = `
 <div
-  className="favoriteCards"
+  className="favorite-cards"
 >
   <Card
     data={
